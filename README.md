@@ -18,3 +18,5 @@
 3. cd ..
 4. cd frontend
 5. yarn start
+
+And then just start signing people up 🙂
