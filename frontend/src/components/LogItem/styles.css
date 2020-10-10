@@ -1,0 +1,52 @@
+li.log-item{
+    background: var(--primary-color);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+li.log-item header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+li.log-item header .log-info{
+    margin-left: 10px;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+}
+
+.log-info strong{
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    display: block;
+    font-size: 13px;
+    color: var(--primary-font)
+}
+
+.log-info span {
+    font-size: 13px;
+    color: var(--secondary-font);
+    margin-top: 2px
+}
+
+li.log-item p {
+    color: var(--tertiary-font);
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+}
+
+li.log-item a {
+    color: #8e4dff;
+    font-size: 14px;
+    text-decoration: none;
+    
+}
+
+li.log-item a:hover {
+    color: #5a2ea6;
+}

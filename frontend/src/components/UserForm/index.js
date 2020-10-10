@@ -1,67 +1,79 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import InputBlock from '../InputBlock'
-import './styles.scss'
+import './styles.css'
+import moment from 'moment'
 
 function UserForm({onSubmit}){  
     const [name, setName] = useState('')
     const [motherName, setMotherName] = useState('')
     const [cpf, setCpf] = useState('')
     const [rg, setRg] = useState('')
-    const [birthdate, setBirthdate] = useState('')
+    const [birthDate, setBirthDate] = useState('')
     
-    async function handleSubmit(e){
+    async function handleSubmit(e){ 
         e.preventDefault()
+
+        var now = moment().toISOString()
+        var birthDateTime = moment(birthDate).toISOString()
 
         await onSubmit({
             name,
             motherName,
             cpf,
-            longitude,
+            rg,
+            birthDate: birthDateTime,
+            signupDate: now
         })
 
-        setGithubUserName('');
-        setTechs('');
+        setName('');
+        setMotherName('');
+        setCpf('');
+        setRg('');
+        setBirthDate('');
     }
-
+    
+    //Frontend Validation
     function validateName(value){
-      return (value !== null && (parseFloat(value) <= 90) && (parseFloat(value) >= -90));
+      return (value.length > 5 && value.match(/^[A-Za-z+ ]+$/));
     }
 
     function validateCpf(value){
-      return (value !== null && (parseFloat(value) <= 90) && (parseFloat(value) >= -90));
+      return (value.length === 11 && value.match(/^[0-9]+$/));
     }
     
     function validateRg(value){
-      return (value !== null && (parseFloat(value) <= 90) && (parseFloat(value) >= -90));
+      return (value.length === 9 && value.match(/^[0-9]+$/));
     }
-    
 
-    function validateLongitude(value){
-      return (value !== null && ( parseFloat(value) <= 180) && (parseFloat(value) >= -180));
+    function ValidateBirthDate(value){
+      var birthDateTime = new moment(value);
+      var now = new moment();
+      return (birthDateTime? now.diff(birthDateTime, 'years') < 100: false);
     }
-    
+
     return (
 
         <form onSubmit={handleSubmit}>
 
-          <InputBlock className="input-block" title="Nome Completo" validation={validateName} name="name" type="string" 
+          <InputBlock className="input-block" title="User Name:" validation={validateName} name="name" type="string" 
           value={name} updateValue={setName}/>
 
-          <InputBlock className="input-block" title="Nome da Mãe" validation={validateName} name="motherName" type="string" 
+          <InputBlock className="input-block" title="Mother's Name:" validation={validateName} name="motherName" type="string" 
           value={motherName} updateValue={setMotherName}/>
 
-          <InputBlock className="input-block" title="Cpf do Usuário" validation={validateCpf} name="cpf" type="int" 
+          <InputBlock className="input-block" title="CPF: (Only Numbers)" validation={validateCpf} name="cpf" type="string" 
           value={cpf} updateValue={setCpf}/>
 
-          <InputBlock className="input-block" title="Rg do Usuário" validation={validateRg} name="rg" type="int" 
+          <InputBlock className="input-block" title="RG: (Only Numbers)" validation={validateRg} name="rg" type="string" 
           value={rg} updateValue={setRg}/>
 
-          <InputBlock className="input-block" title="Data de Nascimento" validation={validateRg} name="birthdate" type="date" 
-          value={birthdate} updateValue={setBirthdate}/>
+          <InputBlock className="input-block" title="Birth Date:" validation={ValidateBirthDate} name="birthdate" type="date" 
+          value={birthDate} updateValue={setBirthDate}/>
 
-          <button type="submit">Cadastrar</button>
+          
+          <button type="submit">Sign Up</button>
         </form>
     )
 }
 
-export default DevForm
+export default UserForm

@@ -8,35 +8,73 @@
   align-items: flex-start;
 }
 
-#logo {
-  display: block;
-  align-content: center;
-  align-self: center;
-  width: 100%;
-  height: 70px;
-  margin-top: 15px;
-}
-
-#switch{
-  position: absolute;
-  width: 100;
-  height: 100;
-  margin-left: 95%;
-  margin-top: 1.25%;
-  color: var(--tertiary_font);
-  background-color: transparent;
-  border-radius: 50%;
-  border: none;
-  border-color: var(--primary_font);
-  transition: color 0.125s;
-}
-
-#switch :hover{
-  color: var(--primary_font);
-  cursor: auto;
-}
-
-
 #app main{
   margin-left: 30px;
+}
+
+#search{
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  display: flex;
+}
+
+#search input{
+  margin-top: 50px;
+
+  background-color: var(--primary-color);
+  color: var(--primary-font);
+  border-radius: 25px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+#search button{
+  margin-left: 10px;
+  margin-top: 50px;
+
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  background: rgb(196, 10, 0);
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+#warn{
+  width: 100%;
+  text-align: center;
+  min-height: 20px;
+  font-size: 12px;
+  color: var(--primary-font);
+}
+
+#search-options{
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+}
+
+#search-options div{
+  width: 20%;
+}
+
+#search-options input{
+  margin-left: 10px;
+  height: 60px;
+  width: 60px;
+}
+
+#search-options label{
+  margin-right: 10px;
+  text-align: center;
+  margin-top: 0;
+  width: 100%;
 }

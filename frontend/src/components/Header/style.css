@@ -33,6 +33,7 @@
 #header button{
 
   margin-top: 15px;
+  margin-left: 100px;
   min-width: 130px;
   font-family: 'Varela Round', sans-serif;
 
@@ -47,7 +48,13 @@
   transition: color 0.5s;
 }
 
+#header button:nth-child(odd){
+  margin-left: 200px;
+}
+
 #middle{
+  align-self: center;
+  justify-self: center;
   width: 100%;
   text-align: middle;
   justify-items: center;
@@ -69,14 +76,4 @@
 
 #header button:hover img{
   filter: var(--hover-filter);
-}
-
-#header button:nth-child(n+3){
-  min-width: 50px;
-  margin-left: 10px;
-}
-
-#header button:nth-child(n+4){
-
-  margin-right: 20px;
 }

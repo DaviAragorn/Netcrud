@@ -9,6 +9,7 @@ using backend.Models;
 
 namespace backend.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class UserItemsController : ControllerBase
@@ -32,9 +33,9 @@ namespace backend.Controllers
 
         // GET: api/UserItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserItem>> GetUserItem(long id)
+        public async Task<ActionResult<UserItem>> GetUserItem(string id)
         {
-            var userItem = await _context.UserItems.FirstOrDefaultAsync((x => x.cpf == id.ToString() || x.rg == id.ToString()));
+            var userItem = await _context.UserItems.FirstOrDefaultAsync((x => x.cpf == id || x.rg == id));
             
             if (userItem == null)
             {
@@ -101,9 +102,9 @@ namespace backend.Controllers
 
         // DELETE: api/UserItems/id
         [HttpDelete("{id}")]
-        public async Task<ActionResult<UserItem>> DeleteUserItem(long id)
+        public async Task<ActionResult<UserItem>> DeleteUserItem(string id)
         {
-            var userItem = await _context.UserItems.FirstOrDefaultAsync((x => x.cpf == id.ToString() || x.rg == id.ToString()));
+            var userItem = await _context.UserItems.FirstOrDefaultAsync((x => x.cpf == id || x.rg == id));
             if (userItem == null)
             {
                 return NotFound();

@@ -27,6 +27,18 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                                        .AllowAnyMethod()
+                                        .AllowAnyHeader();
+                    });
+            });
+
+
             services.AddDbContext<UserContext>(opt =>
                opt.UseInMemoryDatabase("UserList"));
             services.AddDbContext<LogContext>(opt =>
@@ -45,6 +57,8 @@ namespace backend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

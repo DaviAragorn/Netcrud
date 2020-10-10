@@ -5,24 +5,32 @@
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    scrollbar-color: dark
+    scrollbar-color: dark;
 }
 
 :root {
-    --background_color: rgb(10, 11, 12);
-    --primary_color:  rgb(25, 26, 27);
-    --primary_font: rgb(192, 193, 194);
-    --secondary_font: #999;
-    --tertiary_font: #666;
-}
-
-[data-theme="light"]{
-    --background_color: rgb(199, 200, 201);
-    --primary_color:  rgb(250, 251, 252);
-    --primary_font: rgb(25, 26, 27);
-    --secondary_font: #333;
-    --tertiary_font: #666;
-}
+    --background-color: rgb(199, 200, 201);
+    --primary-color:  rgb(250, 251, 252);
+    --primary-font: #191a1b;
+    --secondary-font: #333;
+    --tertiary-font: #666;
+    --header-color: rgb(199, 200, 201, 0.7);
+    --reverse-color: 0;
+    --hover-filter: invert(91%) sepia(20%) saturate(7360%) hue-rotate(356deg) brightness(50%) contrast(90%);
+    --hover-font: #8b690b;
+  }
+  
+  [data-theme="light"]{
+    --background-color: rgb(18, 19, 20);
+    --primary-color:  rgb(36, 38, 40);
+    --primary-font: rgb(255, 255, 255);
+    --secondary-font: #999;
+    --tertiary-font: #666;
+    --header-color: rgb(18, 19, 20, 0.7);
+    --reverse-color: 1;
+    --hover-filter: invert(87%) sepia(75%) saturate(6771%) hue-rotate(358deg) brightness(101%) contrast(101%);
+    --hover-font: #ffff00;
+  }
 
 .scrollable-element {
     scrollbar-color: dark;
@@ -33,11 +41,13 @@ html, body, #root {
 }
 
 body{
-    background: var(--background_color);
+    background: var(--background-color);
 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-family: 'Varela Round', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -49,14 +59,9 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: var(--primary_color);
+    background-color: var(--primary-color);
     outline: 1px solid slategrey;
     border-radius: 5px;
-}
-
-
-body, input, button{
-    font-family: 'Roboto', sans-serif;
 }
 
 main{

@@ -1,52 +1,52 @@
-li.dev-item{
-    background: var(--primary_color);
+li.user-item{
+    background: var(--primary-color);
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
     border-radius: 2px;
     padding: 20px;
 }
 
-li.dev-item header{
+li.user-item header{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-li.dev-item header img{
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-}
-
-li.dev-item header .user-info{
+li.user-item header .user-info{
     margin-left: 10px;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
 }
 
 .user-info strong{
+    align-self: center;
+    text-align: center;
+    justify-self: center;
     display: block;
-    font-size: 16px;
-    color: var(--primary_font)
+    font-size: 13px;
+    color: var(--primary-font)
 }
 
 .user-info span {
     font-size: 13px;
-    color: var(--secondary_font);
+    color: var(--secondary-font);
     margin-top: 2px
 }
 
-li.dev-item p {
-    color: var(--tertiary_font);
+li.user-item p {
+    color: var(--tertiary-font);
     font-size: 14px;
     line-height: 20px;
     margin: 10px 0;
 }
 
-li.dev-item a {
+li.user-item a {
     color: #8e4dff;
     font-size: 14px;
     text-decoration: none;
     
 }
 
-li.dev-item a:hover {
+li.user-item a:hover {
     color: #5a2ea6;
 }
